@@ -1,0 +1,24 @@
+fragment UserItem on users {
+  id
+  displayName
+  avatarUrl
+  metadata
+}
+
+query getAllUsersTest {
+  users {
+    ...UserItem
+  }
+}
+
+query getUserData($id: uuid!) {
+  user(id: $id) {
+    ...UserItem
+  }
+}
+
+mutation updateUserData($id: uuid!, $data: users_set_input!) {
+  updateUser(pk_columns: { id: $id }, _set: $data) {
+    ...UserItem
+  }
+}

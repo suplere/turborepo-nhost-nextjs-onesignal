@@ -1,0 +1,22 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nhost/nhost-js": "^1.13.0",
+    "axios": "^1.2.2",
+    "dayjs": "^1.11.7",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.1.0",
+    "graphql-tag": "^2.12.6",
+    "jose": "^4.11.2",
+    "onesignal-node": "^3.4.0"
+  }
+}

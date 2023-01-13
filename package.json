@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "scripts": {
+    "prepare": "./commands/init.sh && husky install",
+    "build": "turbo run build",
+    "dev": "turbo run dev generate --parallel",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "generate": "graphql-codegen --watch"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.16.3",
+    "@graphql-codegen/client-preset": "^1.2.6",
+    "@graphql-codegen/schema-ast": "^2.6.1",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-graphql-request": "^4.5.8",
+    "@graphql-codegen/typescript-operations": "^2.5.12",
+    "@graphql-codegen/typescript-react-query": "^4.0.6",
+    "eslint": "^8.0.0",
+    "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.2.0",
+    "turbo": "latest",
+    "typescript": "^4.9.4"
+  },
+  "lint-staged": {
+    "apps/web/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "packages/**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@7.24.3",
+  "dependencies": {
+    "@graphql-typed-document-node/core": "^3.1.1",
+    "graphql": "^16.6.0"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build",
+        "$NEXT_PUBLIC_ONE_SIGNAL_APP_ID",
+        "$NEXT_PUBLIC_DEBUG",
+        "$NEXT_PUBLIC_APP_FRONTEND_URL",
+        "$NEXT_PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID",
+        "$NEXT_PUBLIC_NHOST_SUBDOMAIN",
+        "$NEXT_PUBLIC_NHOST_REGION",
+        "$NODE_ENV"
+      ],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "lint": {
+      "outputs": [],
+      "dependsOn": [
+        "$NEXT_PUBLIC_ONE_SIGNAL_APP_ID",
+        "$NEXT_PUBLIC_DEBUG",
+        "$NEXT_PUBLIC_APP_FRONTEND_URL",
+        "$NEXT_PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID",
+        "$NEXT_PUBLIC_NHOST_SUBDOMAIN",
+        "$NEXT_PUBLIC_NHOST_REGION",
+        "$NODE_ENV"
+      ]
+    },
+    "dev": {
+      "cache": false
+    },
+    "generate": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    }
+  },
+  "globalDependencies": [
+    "$NEXT_PUBLIC_ONE_SIGNAL_APP_ID",
+    "$NEXT_PUBLIC_DEBUG",
+    "$NEXT_PUBLIC_APP_FRONTEND_URL",
+    "$NEXT_PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID",
+    "NEXT_PUBLIC_NHOST_SUBDOMAIN",
+    "$NEXT_PUBLIC_NHOST_REGION",
+    "$NODE_ENV"
+  ]
+}

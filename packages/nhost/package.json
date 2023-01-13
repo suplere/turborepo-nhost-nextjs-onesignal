@@ -1,0 +1,16 @@
+{
+  "name": "nhost",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "nhost dev",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .nhost && rm .env"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.17"
+  }
+}

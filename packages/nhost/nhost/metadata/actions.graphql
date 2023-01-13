@@ -1,0 +1,8 @@
+type Mutation {
+  createUserIdHash: CreateUserIdHashOutput
+}
+
+type CreateUserIdHashOutput {
+  affected_rows: Int!
+}
+
