@@ -37,7 +37,7 @@
       "prettier --write"
     ]
   },
-  "packageManager": "pnpm@7.24.3",
+  "packageManager": "pnpm@7.25.0",
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.1.1",
     "graphql": "^16.6.0"
