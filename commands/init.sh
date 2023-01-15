@@ -6,4 +6,5 @@ ln -sf "$(pwd)/.env" packages/nhost/.env.development && echo 'Linked: packages/n
 #ln -sf "$(pwd)/.env" apps/nhost/functions/.env.development && echo 'Linked: apps/nhost/functions/.env.development'
 # ln -sf "$(pwd)/.env" apps/web/.env.local && echo 'Linked: apps/web/.env.local'
 ln -sf "$(pwd)/.env" apps/web/.env.local && echo 'Linked: apps/web/.env.local'
+ln -sf "$(pwd)/.env" apps/web_app-experimental/.env.local && echo 'Linked: apps/web_app-experimental/.env.local'
 # ln -sf "$(pwd)/.env" packages/generated/.env && echo 'Linked: packages/generated/.env'
