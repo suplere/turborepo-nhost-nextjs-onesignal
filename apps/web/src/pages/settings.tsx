@@ -1,4 +1,5 @@
 import { SignedIn } from "@nhost/nextjs";
+import AuthenticatedLayout from "layouts/AuthenticatedLayout";
 import { ReactElement } from "react";
 import FrontendMainLayout from "../layouts/FrontendMainLayout";
 
@@ -171,9 +172,9 @@ function Settings() {
 
 Settings.getLayout = function getLayout(page: ReactElement) {
   return (
-    <SignedIn>
+    <AuthenticatedLayout>
       <FrontendMainLayout title="Settings Page">{page}</FrontendMainLayout>
-    </SignedIn>
+    </AuthenticatedLayout>
   );
 };
 

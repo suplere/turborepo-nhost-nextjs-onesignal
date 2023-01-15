@@ -1,10 +1,12 @@
 import { useSignUpEmailPassword } from "@nhost/nextjs";
+import UnauthenticatedLayout from "layouts/UnauthenticatedLayout";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
 
 import { AuthLayout, RegisterForm, RegisterFormData } from "ui";
 import { useToast } from "../providers/toast/hooks/useToast";
 
+const appUrl = process.env.NEXT_PUBLIC_APP_FRONTEND_URL || "http://localhost";
 function Login() {
   const { signUpEmailPassword } = useSignUpEmailPassword();
   const toast = useToast(3000);
@@ -18,7 +20,7 @@ function Login() {
           allowedRoles: ["user"],
           locale: "cs",
           displayName: `${data.lastname} ${data.firstname}`,
-          redirectTo: "/profile",
+          redirectTo: `${appUrl}/profile`,
           metadata: {
             firstname: data.firstname,
             lastname: data.lastname,
@@ -46,15 +48,17 @@ function Login() {
 
 Login.getLayout = function getLayout(page: ReactElement) {
   return (
-    <AuthLayout
-      title="Register Page"
-      logo="/icons/icon-256x256.png"
-      mainText="Create new account"
-      secondaryText="login to your account"
-      secondaryLink="/login"
-    >
-      {page}
-    </AuthLayout>
+    <UnauthenticatedLayout>
+      <AuthLayout
+        title="Register Page"
+        logo="/icons/icon-256x256.png"
+        mainText="Create new account"
+        secondaryText="login to your account"
+        secondaryLink="/login"
+      >
+        {page}
+      </AuthLayout>
+    </UnauthenticatedLayout>
   );
 };
 

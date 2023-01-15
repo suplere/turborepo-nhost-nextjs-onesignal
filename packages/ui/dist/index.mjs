@@ -260,6 +260,7 @@ import { useForm as useForm2 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { jsx as jsx4, jsxs as jsxs4 } from "react/jsx-runtime";
+"use client";
 function ForgotPasswordForm({ onSubmit }) {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Email is invalid")

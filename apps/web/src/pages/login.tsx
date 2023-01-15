@@ -1,4 +1,5 @@
 import { useSignInEmailPassword } from "@nhost/nextjs";
+import UnauthenticatedLayout from "layouts/UnauthenticatedLayout";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
 
@@ -32,15 +33,17 @@ function Login() {
 
 Login.getLayout = function getLayout(page: ReactElement) {
   return (
-    <AuthLayout
-      title="Login Page"
-      logo="/icons/icon-256x256.png"
-      mainText="Sign in to your account"
-      secondaryText="create new account"
-      secondaryLink="/register"
-    >
-      {page}
-    </AuthLayout>
+    <UnauthenticatedLayout>
+      <AuthLayout
+        title="Login Page"
+        logo="/icons/icon-256x256.png"
+        mainText="Sign in to your account"
+        secondaryText="create new account"
+        secondaryLink="/register"
+      >
+        {page}
+      </AuthLayout>
+    </UnauthenticatedLayout>
   );
 };
 

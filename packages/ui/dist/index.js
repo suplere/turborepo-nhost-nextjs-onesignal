@@ -299,6 +299,7 @@ var import_react_hook_form2 = require("react-hook-form");
 var import_yup = require("@hookform/resolvers/yup");
 var Yup = __toESM(require("yup"));
 var import_jsx_runtime4 = require("react/jsx-runtime");
+"use client";
 function ForgotPasswordForm({ onSubmit }) {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Email is invalid")

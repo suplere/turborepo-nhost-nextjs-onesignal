@@ -4,6 +4,7 @@ import {
   useUserDisplayName,
   useUserId,
 } from "@nhost/nextjs";
+import AuthenticatedLayout from "layouts/AuthenticatedLayout";
 import { ReactElement } from "react";
 import {
   ChangePasswordForm,
@@ -135,9 +136,9 @@ function Profile() {
 
 Profile.getLayout = function getLayout(page: ReactElement) {
   return (
-    <SignedIn>
+    <AuthenticatedLayout>
       <FrontendMainLayout title="Profile Page">{page}</FrontendMainLayout>
-    </SignedIn>
+    </AuthenticatedLayout>
   );
 };
 

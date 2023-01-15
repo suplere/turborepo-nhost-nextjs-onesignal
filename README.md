@@ -76,6 +76,18 @@ pnpm install
 git init . && git add . && git commit -m "Init"
 ```
 
+To run app using /pages:
+
+```sh
+pnpm dev
+```
+
+To run app with Next.js 13 using /app:
+
+```sh
+pnpm dev:beta
+```
+
 At the root monorepo is script for GraphQL codegen - generate helper Typescript function for Nhost function (Graphql request) and Next.js app (React Query). I use this config:
 
 ```js

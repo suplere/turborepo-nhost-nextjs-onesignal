@@ -3,7 +3,8 @@
   "scripts": {
     "prepare": "./commands/init.sh && husky install",
     "build": "turbo run build",
-    "dev": "turbo run dev generate --parallel",
+    "dev": "turbo run dev dev_pages generate --parallel",
+    "dev:beta": "turbo run dev dev_apps generate --parallel",
     "lint": "turbo run lint",
     "clean": "turbo run clean",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
