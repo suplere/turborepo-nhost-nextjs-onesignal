@@ -260,7 +260,6 @@ import { useForm as useForm2 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { jsx as jsx4, jsxs as jsxs4 } from "react/jsx-runtime";
-"use client";
 function ForgotPasswordForm({ onSubmit }) {
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Email is invalid")
@@ -958,7 +957,7 @@ function classNames(...classes) {
 }
 
 // src/components/navigation/Navbar.tsx
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { Fragment as Fragment4, jsx as jsx10, jsxs as jsxs10 } from "react/jsx-runtime";
 function Navbar({
   navigation,
@@ -967,7 +966,7 @@ function Navbar({
   isAuthenticated,
   onLogin
 }) {
-  const router = useRouter();
+  const pathname = usePathname();
   const onClickLogin = (e) => {
     if (onLogin)
       onLogin();
@@ -1030,10 +1029,10 @@ function Navbar({
                     children: navigation.map((item) => /* @__PURE__ */ jsx10(Link5, {
                       href: item.href || "#",
                       className: classNames(
-                        router.pathname === item.href ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                        pathname === item.href ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
                         "px-3 py-2 rounded-md text-sm font-medium"
                       ),
-                      "aria-current": router.pathname === item.href ? "page" : void 0,
+                      "aria-current": pathname === item.href ? "page" : void 0,
                       children: item.name
                     }, item.name))
                   })
@@ -1141,10 +1140,10 @@ function Navbar({
                 as: Link5,
                 href: item.href || "#",
                 className: classNames(
-                  router.pathname === item.href ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                  pathname === item.href ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
                   "block px-3 py-2 rounded-md text-base font-medium"
                 ),
-                "aria-current": router.pathname === item.href ? "page" : void 0,
+                "aria-current": pathname === item.href ? "page" : void 0,
                 children: item.name
               }, item.name))
             }),

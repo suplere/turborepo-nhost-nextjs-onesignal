@@ -1,4 +1,3 @@
-"use client";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { useForm } from "react-hook-form";

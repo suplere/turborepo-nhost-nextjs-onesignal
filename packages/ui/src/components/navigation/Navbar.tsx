@@ -4,7 +4,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
 import { classNames } from "../../utils";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export type NavigationLink = {
   name: string;
@@ -35,7 +36,8 @@ export function Navbar({
   isAuthenticated,
   onLogin,
 }: NavbarProps) {
-  const router = useRouter();
+  // const router = useRouter();
+  const pathname = usePathname();
   const onClickLogin: MouseEventHandler<HTMLButtonElement> = (e) => {
     if (onLogin) onLogin();
   };
@@ -81,14 +83,12 @@ export function Navbar({
                       key={item.name}
                       href={item.href || "#"}
                       className={classNames(
-                        router.pathname === item.href
+                        pathname === item.href
                           ? "bg-gray-900 text-white"
                           : "text-gray-300 hover:bg-gray-700 hover:text-white",
                         "px-3 py-2 rounded-md text-sm font-medium"
                       )}
-                      aria-current={
-                        router.pathname === item.href ? "page" : undefined
-                      }
+                      aria-current={pathname === item.href ? "page" : undefined}
                     >
                       {item.name}
                     </Link>
@@ -189,14 +189,12 @@ export function Navbar({
                   as={Link}
                   href={item.href || "#"}
                   className={classNames(
-                    router.pathname === item.href
+                    pathname === item.href
                       ? "bg-gray-900 text-white"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={
-                    router.pathname === item.href ? "page" : undefined
-                  }
+                  aria-current={pathname === item.href ? "page" : undefined}
                 >
                   {item.name}
                 </Disclosure.Button>

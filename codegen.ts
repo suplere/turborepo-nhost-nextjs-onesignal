@@ -65,6 +65,31 @@ const config: CodegenConfig = {
         exposeFetcher: true,
       },
     },
+    "./apps/web_app-experimental/src/utils/__generated__/graphql.ts": {
+      documents: [
+        "./apps/web_app-experimental/src/**/*.tsx",
+        "./apps/web_app-experimental/src/graphql/*.graphql",
+      ],
+      schema: {
+        "http://localhost:1337/v1/graphql": {
+          headers: {
+            "x-hasura-admin-secret": "nhost-admin-secret",
+            "x-hasura-role": "admin",
+          },
+        },
+      },
+      plugins: [
+        "typescript",
+        "typescript-operations",
+        "typescript-react-query",
+      ],
+      config: {
+        pureMagicComments: true,
+        exposeQueryKeys: true,
+        fetcher: { func: "../graphql-fetcher#fetchData", isReactHook: false },
+        exposeFetcher: true,
+      },
+    },
   },
 };
 
