@@ -16,7 +16,7 @@ function Login() {
         await signInEmailPassword(data.email, data.password);
       if (isSuccess) {
         toast("success", "User is logged in.");
-        router.push("/");
+        router.replace("/");
       }
       if (needsEmailVerification) {
         toast("error", "Email address is not validated.");

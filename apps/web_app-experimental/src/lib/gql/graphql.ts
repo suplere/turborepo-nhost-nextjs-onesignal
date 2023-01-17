@@ -1,5 +1,5 @@
-import { useQuery, useMutation, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
-import { fetchData } from '../graphql-fetcher';
+/* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -34,7 +34,6 @@ export type Boolean_Comparison_Exp = {
 };
 
 export type CreateUserIdHashOutput = {
-  __typename?: 'CreateUserIdHashOutput';
   affected_rows: Scalars['Int'];
 };
 
@@ -86,7 +85,6 @@ export type String_Comparison_Exp = {
 
 /** Oauth requests, inserted before redirecting to the provider's site. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProviderRequests = {
-  __typename?: 'authProviderRequests';
   id: Scalars['uuid'];
   options?: Maybe<Scalars['jsonb']>;
 };
@@ -99,14 +97,12 @@ export type AuthProviderRequestsOptionsArgs = {
 
 /** aggregated selection of "auth.provider_requests" */
 export type AuthProviderRequests_Aggregate = {
-  __typename?: 'authProviderRequests_aggregate';
   aggregate?: Maybe<AuthProviderRequests_Aggregate_Fields>;
   nodes: Array<AuthProviderRequests>;
 };
 
 /** aggregate fields of "auth.provider_requests" */
 export type AuthProviderRequests_Aggregate_Fields = {
-  __typename?: 'authProviderRequests_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthProviderRequests_Max_Fields>;
   min?: Maybe<AuthProviderRequests_Min_Fields>;
@@ -134,10 +130,9 @@ export type AuthProviderRequests_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.provider_requests" */
-export enum AuthProviderRequests_Constraint {
+export type AuthProviderRequests_Constraint =
   /** unique or primary key constraint on columns "id" */
-  ProviderRequestsPkey = 'provider_requests_pkey'
-}
+  | 'provider_requests_pkey';
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type AuthProviderRequests_Delete_At_Path_Input = {
@@ -162,19 +157,16 @@ export type AuthProviderRequests_Insert_Input = {
 
 /** aggregate max on columns */
 export type AuthProviderRequests_Max_Fields = {
-  __typename?: 'authProviderRequests_max_fields';
   id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregate min on columns */
 export type AuthProviderRequests_Min_Fields = {
-  __typename?: 'authProviderRequests_min_fields';
   id?: Maybe<Scalars['uuid']>;
 };
 
 /** response of any mutation on the table "auth.provider_requests" */
 export type AuthProviderRequests_Mutation_Response = {
-  __typename?: 'authProviderRequests_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -205,12 +197,11 @@ export type AuthProviderRequests_Prepend_Input = {
 };
 
 /** select columns of table "auth.provider_requests" */
-export enum AuthProviderRequests_Select_Column {
+export type AuthProviderRequests_Select_Column =
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Options = 'options'
-}
+  | 'options';
 
 /** input type for updating data in table "auth.provider_requests" */
 export type AuthProviderRequests_Set_Input = {
@@ -233,12 +224,11 @@ export type AuthProviderRequests_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.provider_requests" */
-export enum AuthProviderRequests_Update_Column {
+export type AuthProviderRequests_Update_Column =
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Options = 'options'
-}
+  | 'options';
 
 export type AuthProviderRequests_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
@@ -258,7 +248,6 @@ export type AuthProviderRequests_Updates = {
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthProviders = {
-  __typename?: 'authProviders';
   id: Scalars['String'];
   /** An array relationship */
   userProviders: Array<AuthUserProviders>;
@@ -288,14 +277,12 @@ export type AuthProvidersUserProviders_AggregateArgs = {
 
 /** aggregated selection of "auth.providers" */
 export type AuthProviders_Aggregate = {
-  __typename?: 'authProviders_aggregate';
   aggregate?: Maybe<AuthProviders_Aggregate_Fields>;
   nodes: Array<AuthProviders>;
 };
 
 /** aggregate fields of "auth.providers" */
 export type AuthProviders_Aggregate_Fields = {
-  __typename?: 'authProviders_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthProviders_Max_Fields>;
   min?: Maybe<AuthProviders_Min_Fields>;
@@ -319,10 +306,9 @@ export type AuthProviders_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.providers" */
-export enum AuthProviders_Constraint {
+export type AuthProviders_Constraint =
   /** unique or primary key constraint on columns "id" */
-  ProvidersPkey = 'providers_pkey'
-}
+  | 'providers_pkey';
 
 /** input type for inserting data into table "auth.providers" */
 export type AuthProviders_Insert_Input = {
@@ -332,19 +318,16 @@ export type AuthProviders_Insert_Input = {
 
 /** aggregate max on columns */
 export type AuthProviders_Max_Fields = {
-  __typename?: 'authProviders_max_fields';
   id?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type AuthProviders_Min_Fields = {
-  __typename?: 'authProviders_min_fields';
   id?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "auth.providers" */
 export type AuthProviders_Mutation_Response = {
-  __typename?: 'authProviders_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -377,10 +360,9 @@ export type AuthProviders_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.providers" */
-export enum AuthProviders_Select_Column {
+export type AuthProviders_Select_Column =
   /** column name */
-  Id = 'id'
-}
+  | 'id';
 
 /** input type for updating data in table "auth.providers" */
 export type AuthProviders_Set_Input = {
@@ -401,10 +383,9 @@ export type AuthProviders_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.providers" */
-export enum AuthProviders_Update_Column {
+export type AuthProviders_Update_Column =
   /** column name */
-  Id = 'id'
-}
+  | 'id';
 
 export type AuthProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -414,7 +395,6 @@ export type AuthProviders_Updates = {
 
 /** User refresh tokens. Hasura auth uses them to rotate new access tokens as long as the refresh token is not expired. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRefreshTokens = {
-  __typename?: 'authRefreshTokens';
   createdAt: Scalars['timestamptz'];
   expiresAt: Scalars['timestamptz'];
   refreshToken: Scalars['uuid'];
@@ -425,7 +405,6 @@ export type AuthRefreshTokens = {
 
 /** aggregated selection of "auth.refresh_tokens" */
 export type AuthRefreshTokens_Aggregate = {
-  __typename?: 'authRefreshTokens_aggregate';
   aggregate?: Maybe<AuthRefreshTokens_Aggregate_Fields>;
   nodes: Array<AuthRefreshTokens>;
 };
@@ -443,7 +422,6 @@ export type AuthRefreshTokens_Aggregate_Bool_Exp_Count = {
 
 /** aggregate fields of "auth.refresh_tokens" */
 export type AuthRefreshTokens_Aggregate_Fields = {
-  __typename?: 'authRefreshTokens_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthRefreshTokens_Max_Fields>;
   min?: Maybe<AuthRefreshTokens_Min_Fields>;
@@ -483,10 +461,9 @@ export type AuthRefreshTokens_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Constraint {
+export type AuthRefreshTokens_Constraint =
   /** unique or primary key constraint on columns "refresh_token" */
-  RefreshTokensPkey = 'refresh_tokens_pkey'
-}
+  | 'refresh_tokens_pkey';
 
 /** input type for inserting data into table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Insert_Input = {
@@ -499,7 +476,6 @@ export type AuthRefreshTokens_Insert_Input = {
 
 /** aggregate max on columns */
 export type AuthRefreshTokens_Max_Fields = {
-  __typename?: 'authRefreshTokens_max_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   expiresAt?: Maybe<Scalars['timestamptz']>;
   refreshToken?: Maybe<Scalars['uuid']>;
@@ -516,7 +492,6 @@ export type AuthRefreshTokens_Max_Order_By = {
 
 /** aggregate min on columns */
 export type AuthRefreshTokens_Min_Fields = {
-  __typename?: 'authRefreshTokens_min_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   expiresAt?: Maybe<Scalars['timestamptz']>;
   refreshToken?: Maybe<Scalars['uuid']>;
@@ -533,7 +508,6 @@ export type AuthRefreshTokens_Min_Order_By = {
 
 /** response of any mutation on the table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Mutation_Response = {
-  __typename?: 'authRefreshTokens_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -562,16 +536,15 @@ export type AuthRefreshTokens_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Select_Column {
+export type AuthRefreshTokens_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  ExpiresAt = 'expiresAt',
+  | 'expiresAt'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Set_Input = {
@@ -598,16 +571,15 @@ export type AuthRefreshTokens_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Update_Column {
+export type AuthRefreshTokens_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  ExpiresAt = 'expiresAt',
+  | 'expiresAt'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthRefreshTokens_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -617,7 +589,6 @@ export type AuthRefreshTokens_Updates = {
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthRoles = {
-  __typename?: 'authRoles';
   role: Scalars['String'];
   /** An array relationship */
   userRoles: Array<AuthUserRoles>;
@@ -671,14 +642,12 @@ export type AuthRolesUsersByDefaultRole_AggregateArgs = {
 
 /** aggregated selection of "auth.roles" */
 export type AuthRoles_Aggregate = {
-  __typename?: 'authRoles_aggregate';
   aggregate?: Maybe<AuthRoles_Aggregate_Fields>;
   nodes: Array<AuthRoles>;
 };
 
 /** aggregate fields of "auth.roles" */
 export type AuthRoles_Aggregate_Fields = {
-  __typename?: 'authRoles_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthRoles_Max_Fields>;
   min?: Maybe<AuthRoles_Min_Fields>;
@@ -704,10 +673,9 @@ export type AuthRoles_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.roles" */
-export enum AuthRoles_Constraint {
+export type AuthRoles_Constraint =
   /** unique or primary key constraint on columns "role" */
-  RolesPkey = 'roles_pkey'
-}
+  | 'roles_pkey';
 
 /** input type for inserting data into table "auth.roles" */
 export type AuthRoles_Insert_Input = {
@@ -718,19 +686,16 @@ export type AuthRoles_Insert_Input = {
 
 /** aggregate max on columns */
 export type AuthRoles_Max_Fields = {
-  __typename?: 'authRoles_max_fields';
   role?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type AuthRoles_Min_Fields = {
-  __typename?: 'authRoles_min_fields';
   role?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "auth.roles" */
 export type AuthRoles_Mutation_Response = {
-  __typename?: 'authRoles_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -764,10 +729,9 @@ export type AuthRoles_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.roles" */
-export enum AuthRoles_Select_Column {
+export type AuthRoles_Select_Column =
   /** column name */
-  Role = 'role'
-}
+  | 'role';
 
 /** input type for updating data in table "auth.roles" */
 export type AuthRoles_Set_Input = {
@@ -788,10 +752,9 @@ export type AuthRoles_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.roles" */
-export enum AuthRoles_Update_Column {
+export type AuthRoles_Update_Column =
   /** column name */
-  Role = 'role'
-}
+  | 'role';
 
 export type AuthRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -801,7 +764,6 @@ export type AuthRoles_Updates = {
 
 /** Active providers for a given user. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthUserProviders = {
-  __typename?: 'authUserProviders';
   accessToken: Scalars['String'];
   createdAt: Scalars['timestamptz'];
   id: Scalars['uuid'];
@@ -818,7 +780,6 @@ export type AuthUserProviders = {
 
 /** aggregated selection of "auth.user_providers" */
 export type AuthUserProviders_Aggregate = {
-  __typename?: 'authUserProviders_aggregate';
   aggregate?: Maybe<AuthUserProviders_Aggregate_Fields>;
   nodes: Array<AuthUserProviders>;
 };
@@ -836,7 +797,6 @@ export type AuthUserProviders_Aggregate_Bool_Exp_Count = {
 
 /** aggregate fields of "auth.user_providers" */
 export type AuthUserProviders_Aggregate_Fields = {
-  __typename?: 'authUserProviders_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthUserProviders_Max_Fields>;
   min?: Maybe<AuthUserProviders_Min_Fields>;
@@ -881,14 +841,13 @@ export type AuthUserProviders_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.user_providers" */
-export enum AuthUserProviders_Constraint {
+export type AuthUserProviders_Constraint =
   /** unique or primary key constraint on columns "id" */
-  UserProvidersPkey = 'user_providers_pkey',
+  | 'user_providers_pkey'
   /** unique or primary key constraint on columns "provider_id", "provider_user_id" */
-  UserProvidersProviderIdProviderUserIdKey = 'user_providers_provider_id_provider_user_id_key',
+  | 'user_providers_provider_id_provider_user_id_key'
   /** unique or primary key constraint on columns "provider_id", "user_id" */
-  UserProvidersUserIdProviderIdKey = 'user_providers_user_id_provider_id_key'
-}
+  | 'user_providers_user_id_provider_id_key';
 
 /** input type for inserting data into table "auth.user_providers" */
 export type AuthUserProviders_Insert_Input = {
@@ -906,7 +865,6 @@ export type AuthUserProviders_Insert_Input = {
 
 /** aggregate max on columns */
 export type AuthUserProviders_Max_Fields = {
-  __typename?: 'authUserProviders_max_fields';
   accessToken?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
@@ -931,7 +889,6 @@ export type AuthUserProviders_Max_Order_By = {
 
 /** aggregate min on columns */
 export type AuthUserProviders_Min_Fields = {
-  __typename?: 'authUserProviders_min_fields';
   accessToken?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
@@ -956,7 +913,6 @@ export type AuthUserProviders_Min_Order_By = {
 
 /** response of any mutation on the table "auth.user_providers" */
 export type AuthUserProviders_Mutation_Response = {
-  __typename?: 'authUserProviders_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -990,24 +946,23 @@ export type AuthUserProviders_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.user_providers" */
-export enum AuthUserProviders_Select_Column {
+export type AuthUserProviders_Select_Column =
   /** column name */
-  AccessToken = 'accessToken',
+  | 'accessToken'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  ProviderId = 'providerId',
+  | 'providerId'
   /** column name */
-  ProviderUserId = 'providerUserId',
+  | 'providerUserId'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_providers" */
 export type AuthUserProviders_Set_Input = {
@@ -1042,24 +997,23 @@ export type AuthUserProviders_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.user_providers" */
-export enum AuthUserProviders_Update_Column {
+export type AuthUserProviders_Update_Column =
   /** column name */
-  AccessToken = 'accessToken',
+  | 'accessToken'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  ProviderId = 'providerId',
+  | 'providerId'
   /** column name */
-  ProviderUserId = 'providerUserId',
+  | 'providerUserId'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -1069,7 +1023,6 @@ export type AuthUserProviders_Updates = {
 
 /** Roles of users. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthUserRoles = {
-  __typename?: 'authUserRoles';
   createdAt: Scalars['timestamptz'];
   id: Scalars['uuid'];
   role: Scalars['String'];
@@ -1082,7 +1035,6 @@ export type AuthUserRoles = {
 
 /** aggregated selection of "auth.user_roles" */
 export type AuthUserRoles_Aggregate = {
-  __typename?: 'authUserRoles_aggregate';
   aggregate?: Maybe<AuthUserRoles_Aggregate_Fields>;
   nodes: Array<AuthUserRoles>;
 };
@@ -1100,7 +1052,6 @@ export type AuthUserRoles_Aggregate_Bool_Exp_Count = {
 
 /** aggregate fields of "auth.user_roles" */
 export type AuthUserRoles_Aggregate_Fields = {
-  __typename?: 'authUserRoles_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthUserRoles_Max_Fields>;
   min?: Maybe<AuthUserRoles_Min_Fields>;
@@ -1141,12 +1092,11 @@ export type AuthUserRoles_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.user_roles" */
-export enum AuthUserRoles_Constraint {
+export type AuthUserRoles_Constraint =
   /** unique or primary key constraint on columns "id" */
-  UserRolesPkey = 'user_roles_pkey',
+  | 'user_roles_pkey'
   /** unique or primary key constraint on columns "user_id", "role" */
-  UserRolesUserIdRoleKey = 'user_roles_user_id_role_key'
-}
+  | 'user_roles_user_id_role_key';
 
 /** input type for inserting data into table "auth.user_roles" */
 export type AuthUserRoles_Insert_Input = {
@@ -1160,7 +1110,6 @@ export type AuthUserRoles_Insert_Input = {
 
 /** aggregate max on columns */
 export type AuthUserRoles_Max_Fields = {
-  __typename?: 'authUserRoles_max_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
   role?: Maybe<Scalars['String']>;
@@ -1177,7 +1126,6 @@ export type AuthUserRoles_Max_Order_By = {
 
 /** aggregate min on columns */
 export type AuthUserRoles_Min_Fields = {
-  __typename?: 'authUserRoles_min_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
   role?: Maybe<Scalars['String']>;
@@ -1194,7 +1142,6 @@ export type AuthUserRoles_Min_Order_By = {
 
 /** response of any mutation on the table "auth.user_roles" */
 export type AuthUserRoles_Mutation_Response = {
-  __typename?: 'authUserRoles_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -1224,16 +1171,15 @@ export type AuthUserRoles_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.user_roles" */
-export enum AuthUserRoles_Select_Column {
+export type AuthUserRoles_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Role = 'role',
+  | 'role'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_roles" */
 export type AuthUserRoles_Set_Input = {
@@ -1260,16 +1206,15 @@ export type AuthUserRoles_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.user_roles" */
-export enum AuthUserRoles_Update_Column {
+export type AuthUserRoles_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Role = 'role',
+  | 'role'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -1279,7 +1224,6 @@ export type AuthUserRoles_Updates = {
 
 /** User webauthn security keys. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type AuthUserSecurityKeys = {
-  __typename?: 'authUserSecurityKeys';
   counter: Scalars['bigint'];
   credentialId: Scalars['String'];
   credentialPublicKey?: Maybe<Scalars['bytea']>;
@@ -1293,7 +1237,6 @@ export type AuthUserSecurityKeys = {
 
 /** aggregated selection of "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Aggregate = {
-  __typename?: 'authUserSecurityKeys_aggregate';
   aggregate?: Maybe<AuthUserSecurityKeys_Aggregate_Fields>;
   nodes: Array<AuthUserSecurityKeys>;
 };
@@ -1311,7 +1254,6 @@ export type AuthUserSecurityKeys_Aggregate_Bool_Exp_Count = {
 
 /** aggregate fields of "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Aggregate_Fields = {
-  __typename?: 'authUserSecurityKeys_aggregate_fields';
   avg?: Maybe<AuthUserSecurityKeys_Avg_Fields>;
   count: Scalars['Int'];
   max?: Maybe<AuthUserSecurityKeys_Max_Fields>;
@@ -1356,7 +1298,6 @@ export type AuthUserSecurityKeys_Arr_Rel_Insert_Input = {
 
 /** aggregate avg on columns */
 export type AuthUserSecurityKeys_Avg_Fields = {
-  __typename?: 'authUserSecurityKeys_avg_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
@@ -1381,12 +1322,11 @@ export type AuthUserSecurityKeys_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Constraint {
+export type AuthUserSecurityKeys_Constraint =
   /** unique or primary key constraint on columns "credential_id" */
-  UserSecurityKeyCredentialIdKey = 'user_security_key_credential_id_key',
+  | 'user_security_key_credential_id_key'
   /** unique or primary key constraint on columns "id" */
-  UserSecurityKeysPkey = 'user_security_keys_pkey'
-}
+  | 'user_security_keys_pkey';
 
 /** input type for incrementing numeric columns in table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Inc_Input = {
@@ -1407,7 +1347,6 @@ export type AuthUserSecurityKeys_Insert_Input = {
 
 /** aggregate max on columns */
 export type AuthUserSecurityKeys_Max_Fields = {
-  __typename?: 'authUserSecurityKeys_max_fields';
   counter?: Maybe<Scalars['bigint']>;
   credentialId?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
@@ -1428,7 +1367,6 @@ export type AuthUserSecurityKeys_Max_Order_By = {
 
 /** aggregate min on columns */
 export type AuthUserSecurityKeys_Min_Fields = {
-  __typename?: 'authUserSecurityKeys_min_fields';
   counter?: Maybe<Scalars['bigint']>;
   credentialId?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['uuid']>;
@@ -1449,7 +1387,6 @@ export type AuthUserSecurityKeys_Min_Order_By = {
 
 /** response of any mutation on the table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Mutation_Response = {
-  __typename?: 'authUserSecurityKeys_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -1481,22 +1418,21 @@ export type AuthUserSecurityKeys_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Select_Column {
+export type AuthUserSecurityKeys_Select_Column =
   /** column name */
-  Counter = 'counter',
+  | 'counter'
   /** column name */
-  CredentialId = 'credentialId',
+  | 'credentialId'
   /** column name */
-  CredentialPublicKey = 'credentialPublicKey',
+  | 'credentialPublicKey'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Nickname = 'nickname',
+  | 'nickname'
   /** column name */
-  Transports = 'transports',
+  | 'transports'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Set_Input = {
@@ -1511,7 +1447,6 @@ export type AuthUserSecurityKeys_Set_Input = {
 
 /** aggregate stddev on columns */
 export type AuthUserSecurityKeys_Stddev_Fields = {
-  __typename?: 'authUserSecurityKeys_stddev_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
@@ -1522,7 +1457,6 @@ export type AuthUserSecurityKeys_Stddev_Order_By = {
 
 /** aggregate stddev_pop on columns */
 export type AuthUserSecurityKeys_Stddev_Pop_Fields = {
-  __typename?: 'authUserSecurityKeys_stddev_pop_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
@@ -1533,7 +1467,6 @@ export type AuthUserSecurityKeys_Stddev_Pop_Order_By = {
 
 /** aggregate stddev_samp on columns */
 export type AuthUserSecurityKeys_Stddev_Samp_Fields = {
-  __typename?: 'authUserSecurityKeys_stddev_samp_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
@@ -1563,7 +1496,6 @@ export type AuthUserSecurityKeys_Stream_Cursor_Value_Input = {
 
 /** aggregate sum on columns */
 export type AuthUserSecurityKeys_Sum_Fields = {
-  __typename?: 'authUserSecurityKeys_sum_fields';
   counter?: Maybe<Scalars['bigint']>;
 };
 
@@ -1573,22 +1505,21 @@ export type AuthUserSecurityKeys_Sum_Order_By = {
 };
 
 /** update columns of table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Update_Column {
+export type AuthUserSecurityKeys_Update_Column =
   /** column name */
-  Counter = 'counter',
+  | 'counter'
   /** column name */
-  CredentialId = 'credentialId',
+  | 'credentialId'
   /** column name */
-  CredentialPublicKey = 'credentialPublicKey',
+  | 'credentialPublicKey'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Nickname = 'nickname',
+  | 'nickname'
   /** column name */
-  Transports = 'transports',
+  | 'transports'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserSecurityKeys_Updates = {
   /** increments the numeric columns with given value of the filtered values */
@@ -1600,7 +1531,6 @@ export type AuthUserSecurityKeys_Updates = {
 
 /** aggregate var_pop on columns */
 export type AuthUserSecurityKeys_Var_Pop_Fields = {
-  __typename?: 'authUserSecurityKeys_var_pop_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
@@ -1611,7 +1541,6 @@ export type AuthUserSecurityKeys_Var_Pop_Order_By = {
 
 /** aggregate var_samp on columns */
 export type AuthUserSecurityKeys_Var_Samp_Fields = {
-  __typename?: 'authUserSecurityKeys_var_samp_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
@@ -1622,7 +1551,6 @@ export type AuthUserSecurityKeys_Var_Samp_Order_By = {
 
 /** aggregate variance on columns */
 export type AuthUserSecurityKeys_Variance_Fields = {
-  __typename?: 'authUserSecurityKeys_variance_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
@@ -1646,7 +1574,6 @@ export type Bigint_Comparison_Exp = {
 
 /** columns and relationships of "storage.buckets" */
 export type Buckets = {
-  __typename?: 'buckets';
   cacheControl?: Maybe<Scalars['String']>;
   createdAt: Scalars['timestamptz'];
   downloadExpiration: Scalars['Int'];
@@ -1683,14 +1610,12 @@ export type BucketsFiles_AggregateArgs = {
 
 /** aggregated selection of "storage.buckets" */
 export type Buckets_Aggregate = {
-  __typename?: 'buckets_aggregate';
   aggregate?: Maybe<Buckets_Aggregate_Fields>;
   nodes: Array<Buckets>;
 };
 
 /** aggregate fields of "storage.buckets" */
 export type Buckets_Aggregate_Fields = {
-  __typename?: 'buckets_aggregate_fields';
   avg?: Maybe<Buckets_Avg_Fields>;
   count: Scalars['Int'];
   max?: Maybe<Buckets_Max_Fields>;
@@ -1713,7 +1638,6 @@ export type Buckets_Aggregate_FieldsCountArgs = {
 
 /** aggregate avg on columns */
 export type Buckets_Avg_Fields = {
-  __typename?: 'buckets_avg_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
   minUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1737,10 +1661,9 @@ export type Buckets_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "storage.buckets" */
-export enum Buckets_Constraint {
+export type Buckets_Constraint =
   /** unique or primary key constraint on columns "id" */
-  BucketsPkey = 'buckets_pkey'
-}
+  | 'buckets_pkey';
 
 /** input type for incrementing numeric columns in table "storage.buckets" */
 export type Buckets_Inc_Input = {
@@ -1764,7 +1687,6 @@ export type Buckets_Insert_Input = {
 
 /** aggregate max on columns */
 export type Buckets_Max_Fields = {
-  __typename?: 'buckets_max_fields';
   cacheControl?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
   downloadExpiration?: Maybe<Scalars['Int']>;
@@ -1776,7 +1698,6 @@ export type Buckets_Max_Fields = {
 
 /** aggregate min on columns */
 export type Buckets_Min_Fields = {
-  __typename?: 'buckets_min_fields';
   cacheControl?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
   downloadExpiration?: Maybe<Scalars['Int']>;
@@ -1788,7 +1709,6 @@ export type Buckets_Min_Fields = {
 
 /** response of any mutation on the table "storage.buckets" */
 export type Buckets_Mutation_Response = {
-  __typename?: 'buckets_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -1828,24 +1748,23 @@ export type Buckets_Pk_Columns_Input = {
 };
 
 /** select columns of table "storage.buckets" */
-export enum Buckets_Select_Column {
+export type Buckets_Select_Column =
   /** column name */
-  CacheControl = 'cacheControl',
+  | 'cacheControl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DownloadExpiration = 'downloadExpiration',
+  | 'downloadExpiration'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  MaxUploadFileSize = 'maxUploadFileSize',
+  | 'maxUploadFileSize'
   /** column name */
-  MinUploadFileSize = 'minUploadFileSize',
+  | 'minUploadFileSize'
   /** column name */
-  PresignedUrlsEnabled = 'presignedUrlsEnabled',
+  | 'presignedUrlsEnabled'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 /** input type for updating data in table "storage.buckets" */
 export type Buckets_Set_Input = {
@@ -1861,7 +1780,6 @@ export type Buckets_Set_Input = {
 
 /** aggregate stddev on columns */
 export type Buckets_Stddev_Fields = {
-  __typename?: 'buckets_stddev_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
   minUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1869,7 +1787,6 @@ export type Buckets_Stddev_Fields = {
 
 /** aggregate stddev_pop on columns */
 export type Buckets_Stddev_Pop_Fields = {
-  __typename?: 'buckets_stddev_pop_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
   minUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1877,7 +1794,6 @@ export type Buckets_Stddev_Pop_Fields = {
 
 /** aggregate stddev_samp on columns */
 export type Buckets_Stddev_Samp_Fields = {
-  __typename?: 'buckets_stddev_samp_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
   minUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1905,31 +1821,29 @@ export type Buckets_Stream_Cursor_Value_Input = {
 
 /** aggregate sum on columns */
 export type Buckets_Sum_Fields = {
-  __typename?: 'buckets_sum_fields';
   downloadExpiration?: Maybe<Scalars['Int']>;
   maxUploadFileSize?: Maybe<Scalars['Int']>;
   minUploadFileSize?: Maybe<Scalars['Int']>;
 };
 
 /** update columns of table "storage.buckets" */
-export enum Buckets_Update_Column {
+export type Buckets_Update_Column =
   /** column name */
-  CacheControl = 'cacheControl',
+  | 'cacheControl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DownloadExpiration = 'downloadExpiration',
+  | 'downloadExpiration'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  MaxUploadFileSize = 'maxUploadFileSize',
+  | 'maxUploadFileSize'
   /** column name */
-  MinUploadFileSize = 'minUploadFileSize',
+  | 'minUploadFileSize'
   /** column name */
-  PresignedUrlsEnabled = 'presignedUrlsEnabled',
+  | 'presignedUrlsEnabled'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 export type Buckets_Updates = {
   /** increments the numeric columns with given value of the filtered values */
@@ -1941,7 +1855,6 @@ export type Buckets_Updates = {
 
 /** aggregate var_pop on columns */
 export type Buckets_Var_Pop_Fields = {
-  __typename?: 'buckets_var_pop_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
   minUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1949,7 +1862,6 @@ export type Buckets_Var_Pop_Fields = {
 
 /** aggregate var_samp on columns */
 export type Buckets_Var_Samp_Fields = {
-  __typename?: 'buckets_var_samp_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
   minUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1957,7 +1869,6 @@ export type Buckets_Var_Samp_Fields = {
 
 /** aggregate variance on columns */
 export type Buckets_Variance_Fields = {
-  __typename?: 'buckets_variance_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
   minUploadFileSize?: Maybe<Scalars['Float']>;
@@ -2010,16 +1921,14 @@ export type Citext_Comparison_Exp = {
 };
 
 /** ordering argument of a cursor */
-export enum Cursor_Ordering {
+export type Cursor_Ordering =
   /** ascending ordering of the cursor */
-  Asc = 'ASC',
+  | 'ASC'
   /** descending ordering of the cursor */
-  Desc = 'DESC'
-}
+  | 'DESC';
 
 /** columns and relationships of "storage.files" */
 export type Files = {
-  __typename?: 'files';
   /** An object relationship */
   bucket: Buckets;
   bucketId: Scalars['String'];
@@ -2036,7 +1945,6 @@ export type Files = {
 
 /** aggregated selection of "storage.files" */
 export type Files_Aggregate = {
-  __typename?: 'files_aggregate';
   aggregate?: Maybe<Files_Aggregate_Fields>;
   nodes: Array<Files>;
 };
@@ -2070,7 +1978,6 @@ export type Files_Aggregate_Bool_Exp_Count = {
 
 /** aggregate fields of "storage.files" */
 export type Files_Aggregate_Fields = {
-  __typename?: 'files_aggregate_fields';
   avg?: Maybe<Files_Avg_Fields>;
   count: Scalars['Int'];
   max?: Maybe<Files_Max_Fields>;
@@ -2115,7 +2022,6 @@ export type Files_Arr_Rel_Insert_Input = {
 
 /** aggregate avg on columns */
 export type Files_Avg_Fields = {
-  __typename?: 'files_avg_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
@@ -2143,10 +2049,9 @@ export type Files_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "storage.files" */
-export enum Files_Constraint {
+export type Files_Constraint =
   /** unique or primary key constraint on columns "id" */
-  FilesPkey = 'files_pkey'
-}
+  | 'files_pkey';
 
 /** input type for incrementing numeric columns in table "storage.files" */
 export type Files_Inc_Input = {
@@ -2170,7 +2075,6 @@ export type Files_Insert_Input = {
 
 /** aggregate max on columns */
 export type Files_Max_Fields = {
-  __typename?: 'files_max_fields';
   bucketId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
   etag?: Maybe<Scalars['String']>;
@@ -2197,7 +2101,6 @@ export type Files_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Files_Min_Fields = {
-  __typename?: 'files_min_fields';
   bucketId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
   etag?: Maybe<Scalars['String']>;
@@ -2224,7 +2127,6 @@ export type Files_Min_Order_By = {
 
 /** response of any mutation on the table "storage.files" */
 export type Files_Mutation_Response = {
-  __typename?: 'files_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -2259,40 +2161,37 @@ export type Files_Pk_Columns_Input = {
 };
 
 /** select columns of table "storage.files" */
-export enum Files_Select_Column {
+export type Files_Select_Column =
   /** column name */
-  BucketId = 'bucketId',
+  | 'bucketId'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Etag = 'etag',
+  | 'etag'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsUploaded = 'isUploaded',
+  | 'isUploaded'
   /** column name */
-  MimeType = 'mimeType',
+  | 'mimeType'
   /** column name */
-  Name = 'name',
+  | 'name'
   /** column name */
-  Size = 'size',
+  | 'size'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
-}
+  | 'uploadedByUserId';
 
 /** select "files_aggregate_bool_exp_bool_and_arguments_columns" columns of table "storage.files" */
-export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+export type Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns =
   /** column name */
-  IsUploaded = 'isUploaded'
-}
+  | 'isUploaded';
 
 /** select "files_aggregate_bool_exp_bool_or_arguments_columns" columns of table "storage.files" */
-export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+export type Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns =
   /** column name */
-  IsUploaded = 'isUploaded'
-}
+  | 'isUploaded';
 
 /** input type for updating data in table "storage.files" */
 export type Files_Set_Input = {
@@ -2310,7 +2209,6 @@ export type Files_Set_Input = {
 
 /** aggregate stddev on columns */
 export type Files_Stddev_Fields = {
-  __typename?: 'files_stddev_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
@@ -2321,7 +2219,6 @@ export type Files_Stddev_Order_By = {
 
 /** aggregate stddev_pop on columns */
 export type Files_Stddev_Pop_Fields = {
-  __typename?: 'files_stddev_pop_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
@@ -2332,7 +2229,6 @@ export type Files_Stddev_Pop_Order_By = {
 
 /** aggregate stddev_samp on columns */
 export type Files_Stddev_Samp_Fields = {
-  __typename?: 'files_stddev_samp_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
@@ -2365,7 +2261,6 @@ export type Files_Stream_Cursor_Value_Input = {
 
 /** aggregate sum on columns */
 export type Files_Sum_Fields = {
-  __typename?: 'files_sum_fields';
   size?: Maybe<Scalars['Int']>;
 };
 
@@ -2375,28 +2270,27 @@ export type Files_Sum_Order_By = {
 };
 
 /** update columns of table "storage.files" */
-export enum Files_Update_Column {
+export type Files_Update_Column =
   /** column name */
-  BucketId = 'bucketId',
+  | 'bucketId'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Etag = 'etag',
+  | 'etag'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsUploaded = 'isUploaded',
+  | 'isUploaded'
   /** column name */
-  MimeType = 'mimeType',
+  | 'mimeType'
   /** column name */
-  Name = 'name',
+  | 'name'
   /** column name */
-  Size = 'size',
+  | 'size'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
-}
+  | 'uploadedByUserId';
 
 export type Files_Updates = {
   /** increments the numeric columns with given value of the filtered values */
@@ -2408,7 +2302,6 @@ export type Files_Updates = {
 
 /** aggregate var_pop on columns */
 export type Files_Var_Pop_Fields = {
-  __typename?: 'files_var_pop_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
@@ -2419,7 +2312,6 @@ export type Files_Var_Pop_Order_By = {
 
 /** aggregate var_samp on columns */
 export type Files_Var_Samp_Fields = {
-  __typename?: 'files_var_samp_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
@@ -2430,7 +2322,6 @@ export type Files_Var_Samp_Order_By = {
 
 /** aggregate variance on columns */
 export type Files_Variance_Fields = {
-  __typename?: 'files_variance_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
@@ -2469,7 +2360,6 @@ export type Jsonb_Comparison_Exp = {
 
 /** mutation root */
 export type Mutation_Root = {
-  __typename?: 'mutation_root';
   /** Create Id Hash for all users */
   createUserIdHash?: Maybe<CreateUserIdHashOutput>;
   /** delete single row from the table: "auth.providers" */
@@ -3101,23 +2991,21 @@ export type Mutation_RootUpdate_Users_ManyArgs = {
 };
 
 /** column ordering options */
-export enum Order_By {
+export type Order_By =
   /** in ascending order, nulls last */
-  Asc = 'asc',
+  | 'asc'
   /** in ascending order, nulls first */
-  AscNullsFirst = 'asc_nulls_first',
+  | 'asc_nulls_first'
   /** in ascending order, nulls last */
-  AscNullsLast = 'asc_nulls_last',
+  | 'asc_nulls_last'
   /** in descending order, nulls first */
-  Desc = 'desc',
+  | 'desc'
   /** in descending order, nulls first */
-  DescNullsFirst = 'desc_nulls_first',
+  | 'desc_nulls_first'
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
-}
+  | 'desc_nulls_last';
 
 export type Query_Root = {
-  __typename?: 'query_root';
   /** fetch data from the table: "auth.providers" using primary key columns */
   authProvider?: Maybe<AuthProviders>;
   /** fetch data from the table: "auth.provider_requests" using primary key columns */
@@ -3411,7 +3299,6 @@ export type Query_RootUsersAggregateArgs = {
 };
 
 export type Subscription_Root = {
-  __typename?: 'subscription_root';
   /** fetch data from the table: "auth.providers" using primary key columns */
   authProvider?: Maybe<AuthProviders>;
   /** fetch data from the table: "auth.provider_requests" using primary key columns */
@@ -3809,7 +3696,6 @@ export type Timestamptz_Comparison_Exp = {
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
 export type Users = {
-  __typename?: 'users';
   activeMfaType?: Maybe<Scalars['String']>;
   avatarUrl: Scalars['String'];
   createdAt: Scalars['timestamptz'];
@@ -3943,7 +3829,6 @@ export type UsersUserProviders_AggregateArgs = {
 
 /** aggregated selection of "auth.users" */
 export type Users_Aggregate = {
-  __typename?: 'users_aggregate';
   aggregate?: Maybe<Users_Aggregate_Fields>;
   nodes: Array<Users>;
 };
@@ -3977,7 +3862,6 @@ export type Users_Aggregate_Bool_Exp_Count = {
 
 /** aggregate fields of "auth.users" */
 export type Users_Aggregate_Fields = {
-  __typename?: 'users_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<Users_Max_Fields>;
   min?: Maybe<Users_Min_Fields>;
@@ -4051,14 +3935,13 @@ export type Users_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.users" */
-export enum Users_Constraint {
+export type Users_Constraint =
   /** unique or primary key constraint on columns "email" */
-  UsersEmailKey = 'users_email_key',
+  | 'users_email_key'
   /** unique or primary key constraint on columns "phone_number" */
-  UsersPhoneNumberKey = 'users_phone_number_key',
+  | 'users_phone_number_key'
   /** unique or primary key constraint on columns "id" */
-  UsersPkey = 'users_pkey'
-}
+  | 'users_pkey';
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type Users_Delete_At_Path_Input = {
@@ -4111,7 +3994,6 @@ export type Users_Insert_Input = {
 
 /** aggregate max on columns */
 export type Users_Max_Fields = {
-  __typename?: 'users_max_fields';
   activeMfaType?: Maybe<Scalars['String']>;
   avatarUrl?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -4160,7 +4042,6 @@ export type Users_Max_Order_By = {
 
 /** aggregate min on columns */
 export type Users_Min_Fields = {
-  __typename?: 'users_min_fields';
   activeMfaType?: Maybe<Scalars['String']>;
   avatarUrl?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -4209,7 +4090,6 @@ export type Users_Min_Order_By = {
 
 /** response of any mutation on the table "auth.users" */
 export type Users_Mutation_Response = {
-  __typename?: 'users_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
@@ -4275,82 +4155,79 @@ export type Users_Prepend_Input = {
 };
 
 /** select columns of table "auth.users" */
-export enum Users_Select_Column {
+export type Users_Select_Column =
   /** column name */
-  ActiveMfaType = 'activeMfaType',
+  | 'activeMfaType'
   /** column name */
-  AvatarUrl = 'avatarUrl',
+  | 'avatarUrl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  CurrentChallenge = 'currentChallenge',
+  | 'currentChallenge'
   /** column name */
-  DefaultRole = 'defaultRole',
+  | 'defaultRole'
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  DisplayName = 'displayName',
+  | 'displayName'
   /** column name */
-  Email = 'email',
+  | 'email'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  LastSeen = 'lastSeen',
+  | 'lastSeen'
   /** column name */
-  Locale = 'locale',
+  | 'locale'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  NewEmail = 'newEmail',
+  | 'newEmail'
   /** column name */
-  OtpHash = 'otpHash',
+  | 'otpHash'
   /** column name */
-  OtpHashExpiresAt = 'otpHashExpiresAt',
+  | 'otpHashExpiresAt'
   /** column name */
-  OtpMethodLastUsed = 'otpMethodLastUsed',
+  | 'otpMethodLastUsed'
   /** column name */
-  PasswordHash = 'passwordHash',
+  | 'passwordHash'
   /** column name */
-  PhoneNumber = 'phoneNumber',
+  | 'phoneNumber'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified',
+  | 'phoneNumberVerified'
   /** column name */
-  Ticket = 'ticket',
+  | 'ticket'
   /** column name */
-  TicketExpiresAt = 'ticketExpiresAt',
+  | 'ticketExpiresAt'
   /** column name */
-  TotpSecret = 'totpSecret',
+  | 'totpSecret'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 /** select "users_aggregate_bool_exp_bool_and_arguments_columns" columns of table "auth.users" */
-export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+export type Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns =
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
-}
+  | 'phoneNumberVerified';
 
 /** select "users_aggregate_bool_exp_bool_or_arguments_columns" columns of table "auth.users" */
-export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+export type Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns =
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
-}
+  | 'phoneNumberVerified';
 
 /** input type for updating data in table "auth.users" */
 export type Users_Set_Input = {
@@ -4419,58 +4296,57 @@ export type Users_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.users" */
-export enum Users_Update_Column {
+export type Users_Update_Column =
   /** column name */
-  ActiveMfaType = 'activeMfaType',
+  | 'activeMfaType'
   /** column name */
-  AvatarUrl = 'avatarUrl',
+  | 'avatarUrl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  CurrentChallenge = 'currentChallenge',
+  | 'currentChallenge'
   /** column name */
-  DefaultRole = 'defaultRole',
+  | 'defaultRole'
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  DisplayName = 'displayName',
+  | 'displayName'
   /** column name */
-  Email = 'email',
+  | 'email'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  LastSeen = 'lastSeen',
+  | 'lastSeen'
   /** column name */
-  Locale = 'locale',
+  | 'locale'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  NewEmail = 'newEmail',
+  | 'newEmail'
   /** column name */
-  OtpHash = 'otpHash',
+  | 'otpHash'
   /** column name */
-  OtpHashExpiresAt = 'otpHashExpiresAt',
+  | 'otpHashExpiresAt'
   /** column name */
-  OtpMethodLastUsed = 'otpMethodLastUsed',
+  | 'otpMethodLastUsed'
   /** column name */
-  PasswordHash = 'passwordHash',
+  | 'passwordHash'
   /** column name */
-  PhoneNumber = 'phoneNumber',
+  | 'phoneNumber'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified',
+  | 'phoneNumberVerified'
   /** column name */
-  Ticket = 'ticket',
+  | 'ticket'
   /** column name */
-  TicketExpiresAt = 'ticketExpiresAt',
+  | 'ticketExpiresAt'
   /** column name */
-  TotpSecret = 'totpSecret',
+  | 'totpSecret'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 export type Users_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
@@ -4501,19 +4377,28 @@ export type Uuid_Comparison_Exp = {
   _nin?: InputMaybe<Array<Scalars['uuid']>>;
 };
 
-export type UserItemFragment = { __typename?: 'users', id: any, displayName: string, avatarUrl: string, metadata?: any | null };
+export type UserItemFragment = { id: any, displayName: string, avatarUrl: string, metadata?: any | null } & { ' $fragmentName'?: 'UserItemFragment' };
+
+export type UserSecureItemFragment = { id: any, displayName: string, email?: any | null, avatarUrl: string, metadata?: any | null } & { ' $fragmentName'?: 'UserSecureItemFragment' };
 
 export type GetAllUsersTestQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllUsersTestQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', id: any, displayName: string, avatarUrl: string, metadata?: any | null }> };
+export type GetAllUsersTestQuery = { users: Array<{ ' $fragmentRefs'?: { 'UserItemFragment': UserItemFragment } }> };
 
 export type GetUserDataQueryVariables = Exact<{
   id: Scalars['uuid'];
 }>;
 
 
-export type GetUserDataQuery = { __typename?: 'query_root', user?: { __typename?: 'users', id: any, displayName: string, avatarUrl: string, metadata?: any | null } | null };
+export type GetUserDataQuery = { user?: { ' $fragmentRefs'?: { 'UserItemFragment': UserItemFragment } } | null };
+
+export type GetProfileUserDataQueryVariables = Exact<{
+  id: Scalars['uuid'];
+}>;
+
+
+export type GetProfileUserDataQuery = { user?: { ' $fragmentRefs'?: { 'UserSecureItemFragment': UserSecureItemFragment } } | null };
 
 export type UpdateUserDataMutationVariables = Exact<{
   id: Scalars['uuid'];
@@ -4521,78 +4406,11 @@ export type UpdateUserDataMutationVariables = Exact<{
 }>;
 
 
-export type UpdateUserDataMutation = { __typename?: 'mutation_root', updateUser?: { __typename?: 'users', id: any, displayName: string, avatarUrl: string, metadata?: any | null } | null };
+export type UpdateUserDataMutation = { updateUser?: { ' $fragmentRefs'?: { 'UserItemFragment': UserItemFragment } } | null };
 
-export const UserItemFragmentDoc = `
-    fragment UserItem on users {
-  id
-  displayName
-  avatarUrl
-  metadata
-}
-    `;
-export const GetAllUsersTestDocument = `
-    query getAllUsersTest {
-  users {
-    ...UserItem
-  }
-}
-    ${UserItemFragmentDoc}`;
-export const useGetAllUsersTestQuery = <
-      TData = GetAllUsersTestQuery,
-      TError = unknown
-    >(
-      variables?: GetAllUsersTestQueryVariables,
-      options?: UseQueryOptions<GetAllUsersTestQuery, TError, TData>
-    ) =>
-    useQuery<GetAllUsersTestQuery, TError, TData>(
-      variables === undefined ? ['getAllUsersTest'] : ['getAllUsersTest', variables],
-      fetchData<GetAllUsersTestQuery, GetAllUsersTestQueryVariables>(GetAllUsersTestDocument, variables),
-      options
-    );
-
-useGetAllUsersTestQuery.getKey = (variables?: GetAllUsersTestQueryVariables) => variables === undefined ? ['getAllUsersTest'] : ['getAllUsersTest', variables];
-;
-
-useGetAllUsersTestQuery.fetcher = (variables?: GetAllUsersTestQueryVariables, options?: RequestInit['headers']) => fetchData<GetAllUsersTestQuery, GetAllUsersTestQueryVariables>(GetAllUsersTestDocument, variables, options);
-export const GetUserDataDocument = `
-    query getUserData($id: uuid!) {
-  user(id: $id) {
-    ...UserItem
-  }
-}
-    ${UserItemFragmentDoc}`;
-export const useGetUserDataQuery = <
-      TData = GetUserDataQuery,
-      TError = unknown
-    >(
-      variables: GetUserDataQueryVariables,
-      options?: UseQueryOptions<GetUserDataQuery, TError, TData>
-    ) =>
-    useQuery<GetUserDataQuery, TError, TData>(
-      ['getUserData', variables],
-      fetchData<GetUserDataQuery, GetUserDataQueryVariables>(GetUserDataDocument, variables),
-      options
-    );
-
-useGetUserDataQuery.getKey = (variables: GetUserDataQueryVariables) => ['getUserData', variables];
-;
-
-useGetUserDataQuery.fetcher = (variables: GetUserDataQueryVariables, options?: RequestInit['headers']) => fetchData<GetUserDataQuery, GetUserDataQueryVariables>(GetUserDataDocument, variables, options);
-export const UpdateUserDataDocument = `
-    mutation updateUserData($id: uuid!, $data: users_set_input!) {
-  updateUser(pk_columns: {id: $id}, _set: $data) {
-    ...UserItem
-  }
-}
-    ${UserItemFragmentDoc}`;
-export const useUpdateUserDataMutation = <
-      TError = unknown,
-      TContext = unknown
-    >(options?: UseMutationOptions<UpdateUserDataMutation, TError, UpdateUserDataMutationVariables, TContext>) =>
-    useMutation<UpdateUserDataMutation, TError, UpdateUserDataMutationVariables, TContext>(
-      ['updateUserData'],
-      (variables?: UpdateUserDataMutationVariables) => fetchData<UpdateUserDataMutation, UpdateUserDataMutationVariables>(UpdateUserDataDocument, variables)(),
-      options
-    );
-useUpdateUserDataMutation.fetcher = (variables: UpdateUserDataMutationVariables, options?: RequestInit['headers']) => fetchData<UpdateUserDataMutation, UpdateUserDataMutationVariables>(UpdateUserDataDocument, variables, options);
+export const UserItemFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserItem"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"users"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}},{"kind":"Field","name":{"kind":"Name","value":"metadata"}}]}}]} as unknown as DocumentNode<UserItemFragment, unknown>;
+export const UserSecureItemFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"UserSecureItem"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"users"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"displayName"}},{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"avatarUrl"}},{"kind":"Field","name":{"kind":"Name","value":"metadata"}}]}}]} as unknown as DocumentNode<UserSecureItemFragment, unknown>;
+export const GetAllUsersTestDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getAllUsersTest"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserItem"}}]}}]}},...UserItemFragmentDoc.definitions]} as unknown as DocumentNode<GetAllUsersTestQuery, GetAllUsersTestQueryVariables>;
+export const GetUserDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getUserData"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserItem"}}]}}]}},...UserItemFragmentDoc.definitions]} as unknown as DocumentNode<GetUserDataQuery, GetUserDataQueryVariables>;
+export const GetProfileUserDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getProfileUserData"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"user"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserSecureItem"}}]}}]}},...UserSecureItemFragmentDoc.definitions]} as unknown as DocumentNode<GetProfileUserDataQuery, GetProfileUserDataQueryVariables>;
+export const UpdateUserDataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"updateUserData"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"id"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"uuid"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"data"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"users_set_input"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateUser"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"pk_columns"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"Variable","name":{"kind":"Name","value":"id"}}}]}},{"kind":"Argument","name":{"kind":"Name","value":"_set"},"value":{"kind":"Variable","name":{"kind":"Name","value":"data"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"UserItem"}}]}}]}},...UserItemFragmentDoc.definitions]} as unknown as DocumentNode<UpdateUserDataMutation, UpdateUserDataMutationVariables>;

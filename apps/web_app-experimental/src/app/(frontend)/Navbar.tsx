@@ -1,9 +1,11 @@
 "use client";
 
 import { useToast } from "@/providers/toast/hooks/useToast";
-import { useAuthenticated, useSignOut, useUserData } from "@nhost/nextjs";
+import { useSignOut } from "@nhost/nextjs";
 import { Navbar, NavigationLink } from "ui";
 import { useRouter } from "next/navigation";
+import { FragmentType, useFragment } from "@/lib/gql";
+import { UserSecureItemFragmentDoc } from "@/lib/gql/graphql";
 
 const navigation = [
   { name: "Dashboard", href: "/", current: true },
@@ -12,7 +14,12 @@ const navigation = [
   // { name: "Calendar", href: "#", current: false },
 ];
 
-export function NavbarBeta() {
+type NavbarProps = {
+  user?: FragmentType<typeof UserSecureItemFragmentDoc>;
+};
+
+export function NavbarBeta(props: NavbarProps) {
+  const user = useFragment(UserSecureItemFragmentDoc, props.user);
   const { signOut } = useSignOut();
   const toast = useToast();
   const router = useRouter();
@@ -21,7 +28,7 @@ export function NavbarBeta() {
     // console.log("User logged out");
     await signOut();
     toast("success", "User was logged out.");
-    router.push("/");
+    router.refresh();
   };
 
   const userNavigation: NavigationLink[] = [
@@ -34,8 +41,6 @@ export function NavbarBeta() {
     router.push("/login");
   };
 
-  const isAuthenticated = useAuthenticated();
-  const user = useUserData();
   return (
     <Navbar
       navigation={navigation}
@@ -49,7 +54,7 @@ export function NavbarBeta() {
             }
           : null
       }
-      isAuthenticated={isAuthenticated}
+      isAuthenticated={!!props.user}
       onLogin={onLogin}
     />
   );

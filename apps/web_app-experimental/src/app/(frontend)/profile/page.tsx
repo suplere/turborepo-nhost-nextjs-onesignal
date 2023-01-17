@@ -1,86 +1,27 @@
-"use client";
-import { useToast } from "@/providers/toast/hooks/useToast";
-import { removeFileById, uploadFileToStorage } from "@/services/nhost";
 import {
-  useGetUserDataQuery,
-  useUpdateUserDataMutation,
-} from "@/utils/__generated__/graphql";
-import { useChangePassword, useUserId } from "@nhost/nextjs";
-import {
-  ChangePasswordForm,
-  ChangePasswordFormData,
-  ProfileForm,
-  ProfileFormData,
-} from "ui";
+  GetProfileUserDataDocument,
+  GetUserDataDocument,
+} from "@/lib/gql/graphql";
+import { getGqlClient } from "@/lib/service/client";
+import { getAccessToken, getUserId } from "@/utils/headers";
+import { cookies } from "next/headers";
+import { ChangePassword } from "./ChangePassword";
+import { ProfileEdit } from "./ProfileEdit";
 
-function Profile() {
-  const userId = useUserId();
-  const toast = useToast(3000);
-  const { data, refetch } = useGetUserDataQuery(
-    {
-      id: userId,
-    },
-    {
-      enabled: !!userId,
-    }
-  );
+async function getUser(id: string, token: string) {
+  const client = getGqlClient(token);
+  const { user } = await client.request(GetProfileUserDataDocument, {
+    id,
+  });
+  return user!;
+}
 
-  const { mutateAsync } = useUpdateUserDataMutation();
-  const { changePassword } = useChangePassword();
-  const onChangePassword = async (data: ChangePasswordFormData) => {
-    try {
-      const res = await changePassword(data.password);
-      if (res.isSuccess) {
-        toast("success", "Password was change.");
-      }
-    } catch {}
-  };
-  const removeFunction = async () => {
-    if (userId) removeFileById({ fileId: userId });
-  };
-  const uploadFunction = async (file: File) => {
-    await removeFunction();
-    const url = await uploadFileToStorage({
-      file,
-      id: userId,
-      nhostFilename: `avatar_${userId}`,
-      maxSize: 150,
-    });
-    if (url) return url;
-    return "/images/avatar.png";
-  };
-  const onSubmit = async (data: ProfileFormData) => {
-    // console.log(data);
-    const { avatarUrl, firstname, lastname, mobile } = data;
-    try {
-      // await sdk.updateUserData({
-      //   id: userId,
-      //   data: {
-      //     avatarUrl,
-      //     displayName: `${lastname} ${firstname}`,
-      //     metadata: {
-      //       lastname,
-      //       firstname,
-      //       mobile,
-      //     },
-      //   },
-      // });
-      await mutateAsync({
-        id: userId,
-        data: {
-          avatarUrl,
-          displayName: `${lastname} ${firstname}`,
-          metadata: {
-            lastname,
-            firstname,
-            mobile,
-          },
-        },
-      });
-      refetch();
-      toast("success", "Data was saved.");
-    } catch {}
-  };
+async function Profile() {
+  const nextCookies = cookies();
+  const token = getAccessToken(nextCookies.get("nhostSession")?.value);
+  const userId = getUserId(nextCookies.get("nhostSession")?.value);
+  const user = await getUser(userId, token);
+
   return (
     <main className="bg-gray-100 min-h-screen">
       <div className="max-w-4xl mx-auto px-0 pt-3 sm:px-3">
@@ -96,23 +37,7 @@ function Profile() {
               </p>
             </div>
           </div>
-          {data?.user && (
-            <div className="mt-5 md:col-span-2 md:mt-0">
-              <ProfileForm
-                initialData={{
-                  avatarUrl: data.user.avatarUrl,
-                  firstname: data.user.metadata.firstname,
-                  lastname: data.user.metadata.lastname,
-                  mobile: data.user.metadata.mobile,
-                }}
-                onSubmit={onSubmit}
-                avatarHandle={{
-                  removeFunction,
-                  uploadFunction,
-                }}
-              />
-            </div>
-          )}
+          {user && <ProfileEdit user={user} />}
         </div>
       </div>
       <div className="max-w-4xl mx-auto px-0 pt-3 sm:px-3">
@@ -127,11 +52,7 @@ function Profile() {
               </p>
             </div>
           </div>
-          {data?.user && (
-            <div className="mt-5 md:col-span-2 md:mt-0">
-              <ChangePasswordForm onSubmit={onChangePassword} />
-            </div>
-          )}
+          {user && <ChangePassword />}
         </div>
       </div>
     </main>

@@ -145,6 +145,7 @@ select_permissions:
       columns:
         - avatar_url
         - display_name
+        - email
         - id
         - metadata
       filter: {}

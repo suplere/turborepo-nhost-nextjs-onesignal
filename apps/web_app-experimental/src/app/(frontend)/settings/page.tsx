@@ -1,5 +1,4 @@
 function Settings() {
-  // const { data } = useGetAllUsersTestQuery();
   return (
     <main className="bg-gray-100 min-h-screen">
       <div className="max-w-4xl mx-auto px-0 pt-3 sm:px-3">

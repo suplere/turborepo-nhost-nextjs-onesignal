@@ -10,6 +10,7 @@
         "$NEXT_PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID",
         "$NEXT_PUBLIC_NHOST_SUBDOMAIN",
         "$NEXT_PUBLIC_NHOST_REGION",
+        "$NEXT_PUBLIC_HASURA_GRAPHQL_URL",
         "$NODE_ENV"
       ],
       "outputs": ["dist/**", ".next/**"]
@@ -23,6 +24,7 @@
         "$NEXT_PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID",
         "$NEXT_PUBLIC_NHOST_SUBDOMAIN",
         "$NEXT_PUBLIC_NHOST_REGION",
+        "$NEXT_PUBLIC_HASURA_GRAPHQL_URL",
         "$NODE_ENV"
       ]
     },
@@ -49,6 +51,7 @@
     "$NEXT_PUBLIC_ONE_SIGNAL_SAFARI_WEB_ID",
     "NEXT_PUBLIC_NHOST_SUBDOMAIN",
     "$NEXT_PUBLIC_NHOST_REGION",
+    "$NEXT_PUBLIC_HASURA_GRAPHQL_URL",
     "$NODE_ENV"
   ]
 }

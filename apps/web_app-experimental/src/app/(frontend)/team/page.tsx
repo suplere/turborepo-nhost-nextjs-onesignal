@@ -1,9 +1,23 @@
-"use client";
-import UserList from "@/components/UserList";
-import { useGetAllUsersTestQuery } from "@/utils/__generated__/graphql";
+import {
+  GetAllUsersTestDocument,
+  UserItemFragmentDoc,
+} from "@/lib/gql/graphql";
+import { getGqlClient } from "@/lib/service/client";
+import Link from "next/link";
+import { cookies } from "next/headers";
+import { getAccessToken } from "@/utils/headers";
+import { useFragment } from "@/lib/gql";
 
-function Team() {
-  const { data } = useGetAllUsersTestQuery();
+async function getUsers({ token }: { token?: string }) {
+  const client = getGqlClient(token);
+  const { users } = await client.request(GetAllUsersTestDocument, {});
+  return users;
+}
+
+async function Team() {
+  const nextCookies = cookies();
+  const token = getAccessToken(nextCookies.get("nhostSession")?.value);
+  const users = useFragment(UserItemFragmentDoc, await getUsers({ token }));
   return (
     <div className="flex flex-col items-center justify-center py-2">
       <main className="mx-auto w-auto px-4 pt-3 pb-8 sm:pt-4 lg:px-8">
@@ -12,7 +26,13 @@ function Team() {
         </h1>
         <div className="max-w-5xl ma-auto bg-white rounded text-center my-3 flex flex-col">
           <div>User List:</div>
-          {data?.users && <UserList users={data.users}></UserList>}
+          <ul>
+            {users.map((user) => (
+              <li key={user.id}>
+                <Link href={`/team/${user.id}`}>{user.displayName}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </main>
     </div>

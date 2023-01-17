@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { DetailedHTMLProps, HTMLProps } from "react";
 export interface AuthWrapperProps
@@ -21,10 +22,12 @@ function Wrapper({
       <div className="w-full max-w-md space-y-8">
         <div>
           {logo && (
-            <img
+            <Image
               className="mx-auto h-20 w-auto"
               src={logo}
               alt="Your Company"
+              height={80}
+              width={80}
             />
           )}
 

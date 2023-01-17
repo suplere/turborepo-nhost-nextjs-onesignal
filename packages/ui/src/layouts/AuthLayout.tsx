@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import React, { DetailedHTMLProps, HTMLProps, useEffect } from "react";
 
@@ -36,10 +37,12 @@ function AuthLayout({
         <div className="w-full max-w-md space-y-8">
           <div>
             {logo && (
-              <img
+              <Image
                 className="mx-auto h-20 w-auto"
                 src={logo}
                 alt="Your Company"
+                width={80}
+                height={80}
               />
             )}
 

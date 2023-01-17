@@ -5,6 +5,14 @@ fragment UserItem on users {
   metadata
 }
 
+fragment UserSecureItem on users {
+  id
+  displayName
+  email
+  avatarUrl
+  metadata
+}
+
 query getAllUsersTest {
   users {
     ...UserItem
@@ -14,6 +22,12 @@ query getAllUsersTest {
 query getUserData($id: uuid!) {
   user(id: $id) {
     ...UserItem
+  }
+}
+
+query getProfileUserData($id: uuid!) {
+  user(id: $id) {
+    ...UserSecureItem
   }
 }
 
