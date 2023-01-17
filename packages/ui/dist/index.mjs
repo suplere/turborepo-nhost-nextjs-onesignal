@@ -61,6 +61,7 @@ var Button = () => {
 
 // src/layouts/AuthLayout.tsx
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Fragment, jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
@@ -96,10 +97,12 @@ function AuthLayout({
           children: [
             /* @__PURE__ */ jsxs2("div", {
               children: [
-                logo && /* @__PURE__ */ jsx2("img", {
+                logo && /* @__PURE__ */ jsx2(Image, {
                   className: "mx-auto h-20 w-auto",
                   src: logo,
-                  alt: "Your Company"
+                  alt: "Your Company",
+                  width: 80,
+                  height: 80
                 }),
                 /* @__PURE__ */ jsx2("h2", {
                   className: "mt-6 text-center text-3xl font-bold tracking-tight text-gray-900",
@@ -648,7 +651,7 @@ var DragAndDropImageEdit = () => {
 };
 
 // src/components/editors/ImageAvatarEditNhost.tsx
-import Image from "next/image";
+import Image2 from "next/image";
 import { jsx as jsx7, jsxs as jsxs7 } from "react/jsx-runtime";
 function ImageAvatarEditNhost({
   label,
@@ -689,7 +692,7 @@ function ImageAvatarEditNhost({
         children: [
           /* @__PURE__ */ jsx7("span", {
             className: "inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100",
-            children: /* @__PURE__ */ jsx7(Image, {
+            children: /* @__PURE__ */ jsx7(Image2, {
               className: "h-full w-full text-gray-300",
               src: value,
               alt: "preview image",
@@ -949,7 +952,7 @@ import { Fragment as Fragment3 } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link5 from "next/link";
-import Image2 from "next/image";
+import Image3 from "next/image";
 
 // src/utils/classNames.ts
 function classNames(...classes) {
@@ -1006,7 +1009,7 @@ function Navbar({
                   /* @__PURE__ */ jsxs10("div", {
                     className: "flex flex-shrink-0 items-center",
                     children: [
-                      /* @__PURE__ */ jsx10(Image2, {
+                      /* @__PURE__ */ jsx10(Image3, {
                         className: "block h-12 w-auto lg:hidden",
                         src: "/icons/icon-128x128.png",
                         alt: "Your Company",
@@ -1014,7 +1017,7 @@ function Navbar({
                         height: 48,
                         unoptimized: true
                       }),
-                      /* @__PURE__ */ jsx10(Image2, {
+                      /* @__PURE__ */ jsx10(Image3, {
                         className: "hidden h-12 w-auto lg:block",
                         src: "/icons/icon-128x128.png",
                         alt: "Your Company",
@@ -1081,7 +1084,7 @@ function Navbar({
                                   className: "sr-only",
                                   children: "Open user menu"
                                 }),
-                                /* @__PURE__ */ jsx10(Image2, {
+                                /* @__PURE__ */ jsx10(Image3, {
                                   className: "h-8 w-8 rounded-full border",
                                   src: user.avatarUrl,
                                   alt: "",
@@ -1155,7 +1158,7 @@ function Navbar({
                   children: [
                     /* @__PURE__ */ jsx10("div", {
                       className: "flex-shrink-0",
-                      children: /* @__PURE__ */ jsx10(Image2, {
+                      children: /* @__PURE__ */ jsx10(Image3, {
                         className: "h-10 w-10 rounded-full border",
                         src: user.avatarUrl,
                         alt: "",

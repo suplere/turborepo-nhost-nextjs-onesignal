@@ -14,6 +14,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // console.log("Root layout");
   return (
     <html lang="en" className={inter.className}>
       {/*
@@ -23,7 +24,6 @@ export default function RootLayout({
       <head />
       <body>
         <Providers>{children}</Providers>
-
         <div id="toast" className="" />
       </body>
     </html>

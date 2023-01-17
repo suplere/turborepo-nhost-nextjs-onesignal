@@ -100,6 +100,7 @@ var Button = () => {
 
 // src/layouts/AuthLayout.tsx
 var import_head = __toESM(require("next/head"));
+var import_image = __toESM(require("next/image"));
 var import_link = __toESM(require("next/link"));
 var import_react = require("react");
 var import_jsx_runtime2 = require("react/jsx-runtime");
@@ -135,10 +136,12 @@ function AuthLayout({
           children: [
             /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", {
               children: [
-                logo && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("img", {
+                logo && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_image.default, {
                   className: "mx-auto h-20 w-auto",
                   src: logo,
-                  alt: "Your Company"
+                  alt: "Your Company",
+                  width: 80,
+                  height: 80
                 }),
                 /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("h2", {
                   className: "mt-6 text-center text-3xl font-bold tracking-tight text-gray-900",
@@ -687,7 +690,7 @@ var DragAndDropImageEdit = () => {
 };
 
 // src/components/editors/ImageAvatarEditNhost.tsx
-var import_image = __toESM(require("next/image"));
+var import_image2 = __toESM(require("next/image"));
 var import_jsx_runtime7 = require("react/jsx-runtime");
 function ImageAvatarEditNhost({
   label,
@@ -728,7 +731,7 @@ function ImageAvatarEditNhost({
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", {
             className: "inline-block h-12 w-12 overflow-hidden rounded-full bg-gray-100",
-            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_image.default, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_image2.default, {
               className: "h-full w-full text-gray-300",
               src: value,
               alt: "preview image",
@@ -988,7 +991,7 @@ var import_react2 = require("react");
 var import_react3 = require("@headlessui/react");
 var import_outline = require("@heroicons/react/24/outline");
 var import_link5 = __toESM(require("next/link"));
-var import_image2 = __toESM(require("next/image"));
+var import_image3 = __toESM(require("next/image"));
 
 // src/utils/classNames.ts
 function classNames(...classes) {
@@ -1045,7 +1048,7 @@ function Navbar({
                   /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", {
                     className: "flex flex-shrink-0 items-center",
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image2.default, {
+                      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image3.default, {
                         className: "block h-12 w-auto lg:hidden",
                         src: "/icons/icon-128x128.png",
                         alt: "Your Company",
@@ -1053,7 +1056,7 @@ function Navbar({
                         height: 48,
                         unoptimized: true
                       }),
-                      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image2.default, {
+                      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image3.default, {
                         className: "hidden h-12 w-auto lg:block",
                         src: "/icons/icon-128x128.png",
                         alt: "Your Company",
@@ -1120,7 +1123,7 @@ function Navbar({
                                   className: "sr-only",
                                   children: "Open user menu"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image2.default, {
+                                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image3.default, {
                                   className: "h-8 w-8 rounded-full border",
                                   src: user.avatarUrl,
                                   alt: "",
@@ -1194,7 +1197,7 @@ function Navbar({
                   children: [
                     /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", {
                       className: "flex-shrink-0",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image2.default, {
+                      children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_image3.default, {
                         className: "h-10 w-10 rounded-full border",
                         src: user.avatarUrl,
                         alt: "",
