@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@nhost/nhost-js": "^2.0.0",
+    "@nhost/nhost-js": "^3.0.0",
     "axios": "^1.2.2",
     "dayjs": "^1.11.7",
     "graphql": "^16.6.0",
