@@ -10,11 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@nhost/nhost-js": "^2.0.0",
+    "@nhost/nhost-js": "^3.0.0",
     "axios": "^1.2.2",
     "dayjs": "^1.11.7",
     "graphql": "^16.6.0",
-    "graphql-request": "^6.0.0",
+    "graphql-request": "^7.0.0",
     "graphql-tag": "^2.12.6",
     "jose": "^5.0.0",
     "onesignal-node": "^3.4.0"
